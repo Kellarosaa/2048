@@ -1,80 +1,22 @@
-// HTML
-<!-- index.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>2048 Game</title>
-</head>
-<body>
-    <div class="game-container">
-        <div class="grid-container" id="grid"></div>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+// Define an array of numbers with their corresponding names
+const elements = [
+  { number: 1, name: "One" },
+  { number: 2, name: "Two" },
+  { number: 3, name: "Three" },
+  { number: 4, name: "Four" },
+  { number: 5, name: "Five" }
+];
 
-// CSS
-/* styles.css */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-    background-color: #bbada0;
-    padding: 10px;
+// Function to craft a random number
+function craftNumber() {
+  return elements[Math.floor(Math.random() * elements.length)];
 }
 
-// JavaScript
-// script.js
-const grid = document.getElementById('grid');
-let tiles = [];
-
-function initializeGame() {
-    // Initialize the game grid
-    for (let i = 0; i < 16; i++) {
-        const tile = document.createElement('div');
-        tile.classList.add('tile');
-        tile.innerText = '';
-        grid.appendChild(tile);
-        tiles.push(tile);
-    }
+// Function to play the interactive game
+function playInfiniteCraftGame() {
+  const { number, name } = craftNumber();
+  console.log(`Crafted Number: ${number} (${name})`);
 }
 
-initializeGame();
-// JavaScript
-// script.js
-document.addEventListener('keydown', moveTiles);
-
-function moveTiles(event) {
-    // Implement tile movement logic based on key press
-    switch (event.key) {
-        case 'ArrowUp':
-            // Move tiles up
-            break;
-        case 'ArrowDown':
-            // Move tiles down
-            break;
-        case 'ArrowLeft':
-            // Move tiles left
-            break;
-        case 'ArrowRight':
-            // Move tiles right
-            break;
-        default:
-            break;
-    }
-}
-
-// JavaScript
-// script.js
-function mergeTiles(direction) {
-    // Implement tile merging logic based on the direction
-}
-
-function checkGameOver() {
-    // Check if the game is over (no more valid moves)
-}
-
-// Additional logic for merging tiles and checking game over can be added here
+// Play the interactive game
+playInfiniteCraftGame();

@@ -1,24 +1,80 @@
+// HTML
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>2048</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="app.js" charset="utf-8"></script>
-  </head>
-  <body>
-
-    <div class="container">
-      <div class="info">
-        <h1>2048</h1>
-        <div class="score-container">
-          <div class="score-title">score</div>
-          <span id="score">0</span>
-        </div>
-      </div>
-      <span id="result">Join the numbers and get to the <b>2048</b> tile!</span>
-      <div class="grid"></div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>2048 Game</title>
+</head>
+<body>
+    <div class="game-container">
+        <div class="grid-container" id="grid"></div>
     </div>
-
-  </body>
+    <script src="script.js"></script>
+</body>
 </html>
+
+// CSS
+/* styles.css */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    background-color: #bbada0;
+    padding: 10px;
+}
+
+// JavaScript
+// script.js
+const grid = document.getElementById('grid');
+let tiles = [];
+
+function initializeGame() {
+    // Initialize the game grid
+    for (let i = 0; i < 16; i++) {
+        const tile = document.createElement('div');
+        tile.classList.add('tile');
+        tile.innerText = '';
+        grid.appendChild(tile);
+        tiles.push(tile);
+    }
+}
+
+initializeGame();
+// JavaScript
+// script.js
+document.addEventListener('keydown', moveTiles);
+
+function moveTiles(event) {
+    // Implement tile movement logic based on key press
+    switch (event.key) {
+        case 'ArrowUp':
+            // Move tiles up
+            break;
+        case 'ArrowDown':
+            // Move tiles down
+            break;
+        case 'ArrowLeft':
+            // Move tiles left
+            break;
+        case 'ArrowRight':
+            // Move tiles right
+            break;
+        default:
+            break;
+    }
+}
+
+// JavaScript
+// script.js
+function mergeTiles(direction) {
+    // Implement tile merging logic based on the direction
+}
+
+function checkGameOver() {
+    // Check if the game is over (no more valid moves)
+}
+
+// Additional logic for merging tiles and checking game over can be added here
